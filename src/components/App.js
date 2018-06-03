@@ -12,11 +12,13 @@ const App = (props) => {
               <div className='hamburger-menu'><i class="fas fa-bars"></i></div>
             }
             options={{closeOnClick: true}}>
-            <SideNavItem href='#!icon' icon='cloud'>First Link With Icon</SideNavItem>
-            <SideNavItem href='#!second'>Second Link</SideNavItem>
+            <SideNavItem href='#!icon' waves="waves" >Sign In</SideNavItem>
+            <SideNavItem href='#!second' waves="waves" >New Account</SideNavItem>
             <SideNavItem divider="divider"/>
-            <SideNavItem subheader="subheader">Subheader</SideNavItem>
-            <SideNavItem waves="waves" href='#!third'>Third Link With Waves</SideNavItem>
+            <SideNavItem subheader="subheader">Welcome to Coffeeshop</SideNavItem>
+            <SideNavItem waves="waves" href='#!third'>Purchase History</SideNavItem>
+            <SideNavItem waves="waves" href='#!third'>Favorite Shops</SideNavItem>
+            <SideNavItem waves="waves" href='#!third'>Favorite Drinks</SideNavItem>
           </SideNav>
           <div className='shopping-cart'><i class="fas fa-shopping-cart"></i></div>
         </div>
