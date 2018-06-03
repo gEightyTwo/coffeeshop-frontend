@@ -3,7 +3,6 @@ import '../css/App.css';
 import {SideNav, SideNavItem, Button} from 'react-materialize'
 
 const App = (props) => {
-
   return (
     <div className='container'>
       <header className='main-header'>
