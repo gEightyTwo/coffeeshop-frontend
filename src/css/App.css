@@ -165,140 +165,52 @@ h2.main-card-content-time {
 }
 
 
+/* CoffeeShop Page */
 
-/*
-.card {
-  width: 100%;
-  height: 120px;
-  border-bottom: 1px solid rgb(225,225,225);
-  border-right: 1px solid rgb(225,225,225);
-  border-left: 1px solid rgb(225,225,225);
-  padding: 20px;
+
+section.coffeeshop-section {
+  width: 375px;
+  height: 560px;
+  border-bottom: 1px solid rgba(45,30,23,.15);
+  background-color: white;
 }
 
-.card.fulfilled{
-  background-color: rgba(0,0,0,0.2);
-  border-bottom: 1px solid rgba(0,0,0,0.15);
-  border-right: 1px solid rgba(0,0,0,0.15);
-  border-left: 1px solid rgba(0,0,0,0.15);
-}
-
-
-.card h1.card-order-items {
+h1.coffeeshop-section-title {
+  font-size: 24px;
   font-weight: 600;
-  font-size: 16px;
-  margin: 14px 0px;
-}
-
-.card .card-content {
-  display: flex;
-  justify-content: space-between;
-}
-
-.card h2.card-customer-name {
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.card .card-pickup-time-block  {
-  font-size: 14px;
-}
-
-.card .card-pickup-time  {
-  font-size: 14px;
-  padding: 0px 10px;
-}
-
-.card h3.card-order-id {
-  font-weight: 300;
-  font-size: 10px;
-  margin: 8px 0px 0px 0px;
-  color: rgba(0,0,0,.4)
-}
-
-
-.order-header {
-  width: 95%;
-  height: 120px;
-  display: flex;
-  justify-content: space-between;
-  padding: 30px 30px;
-  border-bottom: 1px solid rgb(225,225,225);
-  align-items: center;
-  margin: 0px auto;
-}
-
-.order-header h1.order-id {
-  font-size: 20px;
-  font-weight: 300;
-  color: rgba(0,0,0,.6)
-}
-.order-header h1.order-customer-name {
-  font-size: 20px;
-  font-weight: 300;
-}
-
-.order-header .order-pickup-time-block {
-  font-size: 20px;
-  font-weight: 400;
-}
-
-.order-header .order-pickup-time {
-  padding: 0px 0px 0px 20px;
-}
-
-
-.order-card {
-  width: 95%;
-  justify-content: space-between;
-  padding: 30px 30px;
-  border-bottom: 1px solid rgb(245,245,245);
-  align-items: top;
-  margin: 0px auto;
-}
-
-.order-card h1 {
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 20px;
-}
-
-.order-card ul {
-  list-style-type: none;
-}
-
-
-.order-card ul li {
-  font-size: 16px;
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: rgba(0,0,0,0.7);
-  margin-bottom: 6px;
-}
-
-
-
-.order-footer {
-  width: 95%;
-  height: 120px;
-  display: flex;
-  justify-content: space-between;
-  padding: 30px 30px;
-  align-items: center;
-  margin: 50px auto;
-}
-
-.order-footer .order-button {
-  margin: auto;
-  font-size: 16px;
-  border-radius: 10px;
-  border: 1px solid rgb(225,225,225);
+  letter-spacing: 0.5px;
+  margin: 0px;
+  padding: 40px 20px 10px 20px;
   text-align: center;
-  padding: 12px 25px;
-  cursor: pointer;
 }
 
-.order-footer .order-button:hover {
-  background-color: rgba(0,0,0,0.03)
-} */
+.coffeeshop-info {
+  border-top: 1px solid rgba(45,30,23,.3);
+  border-bottom: 1px solid rgba(45,30,23,.15);
+  padding-bottom: 30px;
+}
+
+h2.coffeeshop-section-address {
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin: 0px;
+  padding: 10px;
+  text-align: center;
+}
+
+h2.coffeeshop-time {
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  padding: 10px;
+  text-align: right;
+  margin: -50px 20px 10px 0px;
+  font-size: 14px;
+  color: white;
+}
+
+header.main-header.coffeeshop {
+  background: url('http://www.dcbebop.com/cuisine/ZEITGEISTwa.jpg');
+  background-position: center;
+  background-size:cover ;
+}
