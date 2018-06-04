@@ -170,7 +170,6 @@ h2.main-card-content-time {
 
 section.coffeeshop-section {
   width: 375px;
-  height: 560px;
   border-bottom: 1px solid rgba(45,30,23,.15);
   background-color: white;
 }
@@ -213,4 +212,38 @@ header.main-header.coffeeshop {
   background: url('http://www.dcbebop.com/cuisine/ZEITGEISTwa.jpg');
   background-position: center;
   background-size:cover ;
+}
+
+
+.coffeeshop-item-card {
+  height: 100px;
+  border-bottom: 1px solid rgba(45,30,23,.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.coffeeshop-item-card:last-of-type{
+  border: none;
+}
+
+img.coffeeshop-item-card-image {
+  display: inline-block;
+  height: 70px;
+  vertical-align: middle;
+}
+
+h1.coffeeshop-item-card-title {
+  display: inline-block;
+  margin: 0px;
+  padding: 0px 20px;
+  font-size: 18px;
+  font-weight: 400;
+  vertical-align: middle;
+}
+
+.coffeeshop-item-card-price {
+  font-size: 18px;
+  font-weight: 400;
 }

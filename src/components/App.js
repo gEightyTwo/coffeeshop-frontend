@@ -18,6 +18,8 @@ const App = (props) => {
               <SideNavItem href='#!second' waves="waves" >New Account</SideNavItem>
               <SideNavItem divider="divider"/>
               <SideNavItem subheader="subheader">Welcome to Coffeeshop</SideNavItem>
+              <SideNavItem waves="waves" href='#!third'>Home</SideNavItem>
+              <SideNavItem waves="waves" href='#!third'>Cart</SideNavItem>
               <SideNavItem waves="waves" href='#!third'>Purchase History</SideNavItem>
               <SideNavItem waves="waves" href='#!third'>Favorite Shops</SideNavItem>
               <SideNavItem waves="waves" href='#!third'>Favorite Drinks</SideNavItem>
@@ -25,6 +27,15 @@ const App = (props) => {
             <div className='shopping-cart'><i class="fas fa-shopping-cart"></i></div>
           </div>
         </header>
+
+
+        {/*
+
+          MAIN PAGE
+
+         */}
+
+
         {/* <section className='main-section'>
           <h1 className='main-section-title'>Top Coffeeshops</h1>
           <div className='main-horizontal-scroller'>
@@ -87,7 +98,7 @@ const App = (props) => {
               <div className='main-card'>
                 <div className='main-card-header items'></div>
                 <div className='main-card-content'>
-                  <h1 className='main-card-content-title'>Cappuchino</h1>
+                  <h1 className='main-card-content-title'>Cappuccino</h1>
                   <h2 className='main-card-content-time'>Order at Zeitgeist Coffee</h2>
                 </div>
               </div>
@@ -102,6 +113,12 @@ const App = (props) => {
           </div>
         </section> */}
 
+        {/*
+
+          COFFEESHOP PAGE
+
+         */}
+
         <h2 className='coffeeshop-time'><i className="fas fa-walking"></i> 5 min</h2>
 
         <section className='coffeeshop-section'>
@@ -109,7 +126,51 @@ const App = (props) => {
               <h1 className='coffeeshop-section-title'>Zeitgeist Coffee</h1>
               <h2 className='coffeeshop-section-address'>171 S Jackson St, Seattle, WA 98101</h2>
           </div>
+          <div className='coffeeshop-item-card-container'>
+            <div className='coffeeshop-item-card'>
+              <div>
+                <img className='coffeeshop-item-card-image' src={'https://media.istockphoto.com/photos/black-coffee-in-disposable-cup-with-clipping-path-picture-id529747627?k=6&m=529747627&s=612x612&w=0&h=lV2tGJlFgX-WQItNWbdZO8XVQHVSoUlbYod-7jKyU1I='}/>
+                <h1 className='coffeeshop-item-card-title'>Americano</h1>
+              </div>
+              <div className='coffeeshop-item-card-price'>$3.00</div>
+            </div>
+            <div className='coffeeshop-item-card'>
+              <div>
+                <img className='coffeeshop-item-card-image' src={'https://media.istockphoto.com/photos/black-coffee-in-disposable-cup-with-clipping-path-picture-id529747627?k=6&m=529747627&s=612x612&w=0&h=lV2tGJlFgX-WQItNWbdZO8XVQHVSoUlbYod-7jKyU1I='}/>
+                <h1 className='coffeeshop-item-card-title'>Latte</h1>
+              </div>
+              <div className='coffeeshop-item-card-price'>$4.25</div>
+            </div>
+            <div className='coffeeshop-item-card'>
+              <div>
+                <img className='coffeeshop-item-card-image' src={'https://media.istockphoto.com/photos/black-coffee-in-disposable-cup-with-clipping-path-picture-id529747627?k=6&m=529747627&s=612x612&w=0&h=lV2tGJlFgX-WQItNWbdZO8XVQHVSoUlbYod-7jKyU1I='}/>
+                <h1 className='coffeeshop-item-card-title'>Cappuccino</h1>
+              </div>
+              <div className='coffeeshop-item-card-price'>$3.75</div>
+            </div>
+            <div className='coffeeshop-item-card'>
+              <div>
+                <img className='coffeeshop-item-card-image' src={'https://media.istockphoto.com/photos/black-coffee-in-disposable-cup-with-clipping-path-picture-id529747627?k=6&m=529747627&s=612x612&w=0&h=lV2tGJlFgX-WQItNWbdZO8XVQHVSoUlbYod-7jKyU1I='}/>
+                <h1 className='coffeeshop-item-card-title'>Cafe Mocha</h1>
+              </div>
+              <div className='coffeeshop-item-card-price'>$4.50</div>
+            </div>
+          </div>
         </section>
+
+
+
+
+
+
+
+      {/*
+
+        FOOTER
+
+       */}
+
+
 
         <footer className='main-footer'>
           <p className='footer-text'>© 2018 Coffeeshop</p>
