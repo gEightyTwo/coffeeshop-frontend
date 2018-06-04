@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/App.css';
-import {SideNav, SideNavItem, Button} from 'react-materialize'
+import {SideNav, SideNavItem, Button, Collapsible, CollapsibleItem, Collection, CollectionItem} from 'react-materialize'
 
 const App = (props) => {
   return (
@@ -119,7 +119,7 @@ const App = (props) => {
 
          */}
 
-        <h2 className='coffeeshop-time'><i className="fas fa-walking"></i> 5 min</h2>
+        {/* <h2 className='coffeeshop-time'><i className="fas fa-walking"></i> 5 min</h2>
 
         <section className='coffeeshop-section'>
           <div className='coffeeshop-info'>
@@ -156,11 +156,59 @@ const App = (props) => {
               <div className='coffeeshop-item-card-price'>$4.50</div>
             </div>
           </div>
+        </section> */}
+
+
+        {/*
+
+          ITEM PAGE
+
+         */}
+
+        <h2 className='coffeeshop-time'><i className="fas fa-walking"></i> 5 min</h2>
+
+        <section className='coffeeshop-section'>
+          <div className='coffeeshop-info'>
+              <h1 className='coffeeshop-section-title'>Latte</h1>
+              <h2 className='coffeeshop-section-address'>$3.75</h2>
+          </div>
+          <div className='item-options-item-card-container'>
+            <Collapsible accordion defaultActiveKey={0} style={{boxShadow: 'none', border: 'none'}}>
+              <CollapsibleItem header={'Size - 12 oz'} icon='filter_drama' style={{fontSize: '12px'}}>
+                <Collection>
+                  <CollectionItem href='#'>8 oz</CollectionItem>
+                  <CollectionItem href='#' active>12 oz</CollectionItem>
+                  <CollectionItem href='#'>16 oz</CollectionItem>
+                </Collection>
+              </CollapsibleItem>
+              <CollapsibleItem header={'Milk - 2% Milk'} icon='filter_drama' style={{fontSize: '12px'}}>
+                <Collection>
+                  <CollectionItem href='#'>Skim Milk</CollectionItem>
+                  <CollectionItem href='#' active>2% Milk</CollectionItem>
+                  <CollectionItem href='#'>Whole Milk</CollectionItem>
+                  <CollectionItem href='#'>Almond Milk</CollectionItem>
+                  <CollectionItem href='#'>Soy Milk</CollectionItem>
+                </Collection>
+              </CollapsibleItem>
+              <CollapsibleItem header={'Espresso - Double Shot'} icon='place' style={{fontSize: '12px'}}>
+                <Collection>
+                  <CollectionItem href='#'>Single Shot</CollectionItem>
+                  <CollectionItem href='#' active>Double Shot</CollectionItem>
+                  <CollectionItem href='#'>Triple Shot</CollectionItem>
+                  <CollectionItem href='#'>Quad Shot</CollectionItem>
+                </Collection>
+              </CollapsibleItem>
+            </Collapsible>
+          </div>
         </section>
-
-
-
-
+        <Button
+          floating
+          large
+          className='red'
+          waves='light'
+          icon='add'
+          style={{position: 'absolute', bottom: '60px', right: '20px'}}
+        />
 
 
 
@@ -175,6 +223,7 @@ const App = (props) => {
         <footer className='main-footer'>
           <p className='footer-text'>© 2018 Coffeeshop</p>
         </footer>
+
       </div>
   </div>
 )}

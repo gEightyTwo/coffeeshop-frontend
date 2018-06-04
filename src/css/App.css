@@ -247,3 +247,9 @@ h1.coffeeshop-item-card-title {
   font-size: 18px;
   font-weight: 400;
 }
+
+/*  Item Options */
+
+.item-options-item-card-container {
+  min-height: 290px;
+}
