@@ -1,6 +1,16 @@
 import React from 'react';
 import '../css/App.css';
 import {SideNav, SideNavItem, Button, Collapsible, CollapsibleItem, Collection, CollectionItem} from 'react-materialize'
+import io from 'socket.io-client';
+
+const token = localStorage.getItem('token') || 12345
+const socket = io.connect(`http://localhost:3000?token=${token}`, {reconnect: true})
+
+
+const handlePlaceOrder = event => {
+  console.log('hi');
+  socket.emit('chat message',`${token}`)
+}
 
 const App = (props) => {
   return (
@@ -255,7 +265,7 @@ const App = (props) => {
           <h1 className='cart-section-title-total'>Order Total</h1>
           <h1 className='cart-section-title-total'>$14.00</h1>
         </div>
-        <Button waves='light' className='cart-item-order-button'>Place Order</Button>
+        <Button waves='light' className='cart-item-order-button' onClick={handlePlaceOrder}>Place Order</Button>
 
       </section>
 
