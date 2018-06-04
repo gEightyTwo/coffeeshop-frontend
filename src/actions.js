@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { request } from './helpers'
+// import { request } from './helpers'
 
 export const DO_ACTION = 'DO_ACTION'
 

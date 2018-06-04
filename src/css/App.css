@@ -251,5 +251,12 @@ h1.coffeeshop-item-card-title {
 /*  Item Options */
 
 .item-options-item-card-container {
-  min-height: 290px;
+  /* min-height: 100px; */
+}
+
+.item-options-add-button {
+  display: block;
+  width: 60%;
+  height: 60px;
+  margin: 46px auto;
 }

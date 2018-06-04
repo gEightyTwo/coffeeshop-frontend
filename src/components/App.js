@@ -11,20 +11,20 @@ const App = (props) => {
           <div className='main-header-nav'>
             <SideNav
               trigger={
-                <div className='hamburger-menu'><i class="fas fa-bars"></i></div>
+                <div className='hamburger-menu'><i className="fas fa-bars"></i></div>
               }
               options={{closeOnClick: true}}>
-              <SideNavItem href='#!icon' waves="waves" >Sign In</SideNavItem>
-              <SideNavItem href='#!second' waves="waves" >New Account</SideNavItem>
-              <SideNavItem divider="divider"/>
-              <SideNavItem subheader="subheader">Welcome to Coffeeshop</SideNavItem>
-              <SideNavItem waves="waves" href='#!third'>Home</SideNavItem>
-              <SideNavItem waves="waves" href='#!third'>Cart</SideNavItem>
-              <SideNavItem waves="waves" href='#!third'>Purchase History</SideNavItem>
-              <SideNavItem waves="waves" href='#!third'>Favorite Shops</SideNavItem>
-              <SideNavItem waves="waves" href='#!third'>Favorite Drinks</SideNavItem>
+              <SideNavItem href='#!icon' waves={true}>Sign In</SideNavItem>
+              <SideNavItem href='#!second' waves={true} >New Account</SideNavItem>
+              <SideNavItem divider={true}/>
+              <SideNavItem subheader={true}>Welcome to Coffeeshop</SideNavItem>
+              <SideNavItem waves={true} href='#!third'>Home</SideNavItem>
+              <SideNavItem waves={true} href='#!third'>Cart</SideNavItem>
+              <SideNavItem waves={true} href='#!third'>Purchase History</SideNavItem>
+              <SideNavItem waves={true} href='#!third'>Favorite Shops</SideNavItem>
+              <SideNavItem waves={true} href='#!third'>Favorite Drinks</SideNavItem>
             </SideNav>
-            <div className='shopping-cart'><i class="fas fa-shopping-cart"></i></div>
+            <div className='shopping-cart'><i className="fas fa-shopping-cart"></i></div>
           </div>
         </header>
 
@@ -192,23 +192,18 @@ const App = (props) => {
               </CollapsibleItem>
               <CollapsibleItem header={'Espresso - Double Shot'} icon='place' style={{fontSize: '12px'}}>
                 <Collection>
-                  <CollectionItem href='#'>Single Shot</CollectionItem>
-                  <CollectionItem href='#' active>Double Shot</CollectionItem>
+                  <CollectionItem href='#' active>Single Shot</CollectionItem>
+                  <CollectionItem href='#'>Double Shot</CollectionItem>
                   <CollectionItem href='#'>Triple Shot</CollectionItem>
                   <CollectionItem href='#'>Quad Shot</CollectionItem>
                 </Collection>
               </CollapsibleItem>
             </Collapsible>
           </div>
+          <Button waves='light' className='item-options-add-button'>Add to Order</Button>
+
         </section>
-        <Button
-          floating
-          large
-          className='red'
-          waves='light'
-          icon='add'
-          style={{position: 'absolute', bottom: '60px', right: '20px'}}
-        />
+
 
 
 
