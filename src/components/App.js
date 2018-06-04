@@ -20,7 +20,7 @@ const App = (props) => {
               <SideNavItem subheader={true}>Welcome to Coffeeshop</SideNavItem>
               <SideNavItem waves={true} href='#!third'>Home</SideNavItem>
               <SideNavItem waves={true} href='#!third'>Cart</SideNavItem>
-              <SideNavItem waves={true} href='#!third'>Purchase History</SideNavItem>
+              <SideNavItem waves={true} href='#!third'>Order History</SideNavItem>
               <SideNavItem waves={true} href='#!third'>Favorite Shops</SideNavItem>
               <SideNavItem waves={true} href='#!third'>Favorite Drinks</SideNavItem>
             </SideNav>
@@ -165,7 +165,7 @@ const App = (props) => {
 
          */}
 
-        <h2 className='coffeeshop-time'><i className="fas fa-walking"></i> 5 min</h2>
+        {/* <h2 className='coffeeshop-time'><i className="fas fa-walking"></i> 5 min</h2>
 
         <section className='coffeeshop-section'>
           <div className='coffeeshop-info'>
@@ -202,7 +202,62 @@ const App = (props) => {
           </div>
           <Button waves='light' className='item-options-add-button'>Add to Order</Button>
 
-        </section>
+        </section> */}
+
+
+
+      {/*
+
+        CART PAGE
+
+       */}
+
+      <h2 className='coffeeshop-time'><i className="fas fa-walking"></i> 5 min</h2>
+
+      <section className='cart-section'>
+        <div className='cart-info'>
+            <h1 className='cart-section-title'>Order (4)</h1>
+            <h2 className='cart-section-subtitle'>Zeitgeist Coffee - <i className="fas fa-walking"></i> 5 min</h2>
+            <h2 className='cart-section-subtitle'>171 S Jackson St, Seattle, WA 98101</h2>
+            <h2 className='cart-section-subtitle'>(206) 999-9999</h2>
+        </div>
+        <div className='cart-pickup-time'>
+            <h1 className='cart-pickup-time-text'><i class="far fa-clock"></i> Pick Up in 10 min</h1>
+            <input className='cart-pickup-time-slider' type="range" min="10" max="30" value={'20'}/>
+        </div>
+        <div className='cart-item-card-container'>
+          <div className='cart-item-card'>
+            <div>
+              <h1 className='cart-item-card-title'>1 x Latte</h1>
+              <h2 className='cart-item-card-subtitle'>12 oz, 2% Milk, Double Shot</h2>
+              <h2 className='cart-item-card-subtitle'><i className="fas fa-plus cart-item-button"></i><i className="fas fa-minus cart-item-button"></i></h2>
+            </div>
+            <div className='cart-item-card-price'>$3.75</div>
+          </div>
+          <div className='cart-item-card'>
+            <div>
+              <h1 className='cart-item-card-title'>2 x Americano</h1>
+              <h2 className='cart-item-card-subtitle'>8 oz, Double Shot</h2>
+              <h2 className='cart-item-card-subtitle'><i className="fas fa-plus cart-item-button"></i><i className="fas fa-minus cart-item-button"></i></h2>
+            </div>
+            <div className='cart-item-card-price'>$6.50</div>
+          </div>
+          <div className='cart-item-card'>
+            <div>
+              <h1 className='cart-item-card-title'>1 x Cafe Mocha</h1>
+              <h2 className='cart-item-card-subtitle'>16 oz, 2% Milk, Double Shot</h2>
+              <h2 className='cart-item-card-subtitle'><i className="fas fa-plus cart-item-button"></i><i className="fas fa-minus cart-item-button"></i></h2>
+            </div>
+            <div className='cart-item-card-price'>$3.75</div>
+          </div>
+        </div>
+        <div className='cart-item-card'>
+          <h1 className='cart-section-title-total'>Order Total</h1>
+          <h1 className='cart-section-title-total'>$14.00</h1>
+        </div>
+        <Button waves='light' className='cart-item-order-button'>Place Order</Button>
+
+      </section>
 
 
 
@@ -214,10 +269,10 @@ const App = (props) => {
        */}
 
 
-
+{/*
         <footer className='main-footer'>
           <p className='footer-text'>© 2018 Coffeeshop</p>
-        </footer>
+        </footer> */}
 
       </div>
   </div>

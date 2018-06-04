@@ -248,7 +248,7 @@ h1.coffeeshop-item-card-title {
   font-weight: 400;
 }
 
-/*  Item Options */
+/*  Item Options Page*/
 
 .item-options-item-card-container {
   /* min-height: 100px; */
@@ -259,4 +259,129 @@ h1.coffeeshop-item-card-title {
   width: 60%;
   height: 60px;
   margin: 46px auto;
+}
+
+
+
+/*  Order Page */
+
+
+section.cart-section {
+  width: 375px;
+  /* border-bottom: 1px solid rgba(45,30,23,.15); */
+  background-color: white;
+}
+
+h1.cart-section-title {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 0px;
+  padding: 40px 20px 20px 20px;
+  text-align: left;
+}
+
+.cart-info {
+  /* border-top: 1px solid rgba(45,30,23,.3);
+  border-bottom: 1px solid rgba(45,30,23,.15); */
+  padding-bottom: 30px;
+}
+
+h2.cart-section-subtitle {
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin: 0px;
+  padding: 3px 20px;
+  text-align: left;
+}
+
+h2.cart-section-subtitle:first-of-type {
+  font-weight: 400;
+}
+
+.cart-pickup-time {
+  margin-bottom: 20px;
+}
+
+
+h1.cart-pickup-time-text {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 0px;
+  padding: 20px 20px 20px 20px;
+  text-align: left;
+}
+
+
+input.cart-pickup-time-slider{
+  padding: 5px 20px;
+}
+
+
+
+
+.cart-item-card {
+  height: 100px;
+  /* border-bottom: 1px solid rgba(45,30,23,.15); */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.cart-item-card:last-of-type{
+  border: none;
+}
+
+
+h1.cart-item-card-title {
+  display: block;
+  margin: 0px;
+  padding: 5px 0px;
+  font-size: 18px;
+  font-weight: 400;
+  vertical-align: middle;
+}
+
+
+h2.cart-item-card-subtitle {
+  display: block;
+  margin: 0px;
+  padding: 5px 0px;
+  font-size: 11px;
+  font-weight: 300;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+.cart-item-card-price {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.cart-item-button {
+  font-size: 8px;
+  padding: 6px 6px 6px 7px;
+  border-radius: 30px;
+  border: 1px solid rgba(45,30,23,.15);
+  color: rgba(0,0,0,1);
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+
+.cart-item-order-button {
+  display: block;
+  width: 100%;
+  height: 80px;
+  margin: 15px auto 0px auto;
+}
+
+h1.cart-section-title-total {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: left;
 }
