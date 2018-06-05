@@ -5,6 +5,8 @@ export const CHANGE_ACTIVE_PAGE = 'CHANGE_ACTIVE_PAGE'
 export const CHANGE_ACTIVE_SHOP = 'CHANGE_ACTIVE_SHOP'
 export const CHANGE_ACTIVE_ITEM = 'CHANGE_ACTIVE_ITEM'
 export const ADD_TO_CART = 'ADD_TO_CART'
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
+export const SET_PICKUP_TIME = 'SET_PICKUP_TIME'
 
 const pages = [
   {id: 0, name: 'home'},
@@ -50,11 +52,11 @@ export const changeActiveShop = shopId => (
 )
 
 
-export const changeActiveItem = itemId => (
+export const changeActiveItem = item => (
   dispatch => {
       dispatch({
         type: CHANGE_ACTIVE_ITEM,
-        payload: items.find(el => el.id === itemId)
+        payload: item
       })
   }
 )
@@ -65,6 +67,25 @@ export const addToCart = item => (
       dispatch({
         type: ADD_TO_CART,
         payload: item
+      })
+  }
+)
+
+
+export const removeFromCart = idx => (
+  dispatch => {
+      dispatch({
+        type: REMOVE_FROM_CART,
+        payload: idx
+      })
+  }
+)
+
+export const setPickupTime = time => (
+  dispatch => {
+      dispatch({
+        type: SET_PICKUP_TIME,
+        payload: time
       })
   }
 )
