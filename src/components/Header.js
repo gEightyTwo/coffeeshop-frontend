@@ -10,7 +10,6 @@ const token = localStorage.getItem('token') || 12345
 
 
 const Header = (props) => {
-  console.log(props.activePage)
   return (
     <header className={`main-header ${props.activePage.id ? 'coffeeshop': null}`}>
       <div className='main-header-nav'>

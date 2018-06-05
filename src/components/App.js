@@ -21,7 +21,6 @@ const handlePlaceOrder = event => {
 }
 
 const App = (props) => {
-  console.log(props.activePage);
   return (
     <div className='container'>
       {props.activePage.id === 0 ? <Home/> : null}
