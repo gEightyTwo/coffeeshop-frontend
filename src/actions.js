@@ -3,6 +3,8 @@ import axios from 'axios'
 
 export const CHANGE_ACTIVE_PAGE = 'CHANGE_ACTIVE_PAGE'
 export const CHANGE_ACTIVE_SHOP = 'CHANGE_ACTIVE_SHOP'
+export const CHANGE_ACTIVE_ITEM = 'CHANGE_ACTIVE_ITEM'
+export const ADD_TO_CART = 'ADD_TO_CART'
 
 const pages = [
   {id: 0, name: 'home'},
@@ -16,6 +18,14 @@ const shops = [
   {id: 1, name: 'Cherry Street'},
   {id: 2, name: 'Elm Coffee Roasters'},
   {id: 3, name: 'Other CoffeeShop'},
+]
+
+
+const items = [
+  {id: 0, name: 'Americano'},
+  {id: 1, name: 'Latte'},
+  {id: 2, name: 'Cappuccino'},
+  {id: 3, name: 'Cafe Mocha'},
 ]
 
 
@@ -38,6 +48,27 @@ export const changeActiveShop = shopId => (
       })
   }
 )
+
+
+export const changeActiveItem = itemId => (
+  dispatch => {
+      dispatch({
+        type: CHANGE_ACTIVE_ITEM,
+        payload: items.find(el => el.id === itemId)
+      })
+  }
+)
+
+
+export const addToCart = item => (
+  dispatch => {
+      dispatch({
+        type: ADD_TO_CART,
+        payload: item
+      })
+  }
+)
+
 //
 // export const doAction = () => (
 //   dispatch => {

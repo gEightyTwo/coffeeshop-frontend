@@ -5,13 +5,19 @@ import io from 'socket.io-client';
 import { bindActionCreators } from 'redux'
 import {connect} from 'react-redux'
 
-import {changeActivePage,changeActiveShop} from '../actions'
+import {changeActivePage,changeActiveShop, changeActiveItem} from '../actions'
 import Header from './Header'
 
 
 const handleShopSelection = (props, shopId) => {
   props.changeActiveShop(shopId)
   props.changeActivePage(1)
+}
+
+const handleItemSelection = (props, shopId, itemId) => {
+  props.changeActiveShop(shopId)
+  props.changeActiveItem(itemId)
+  props.changeActivePage(2)
 }
 
 
@@ -66,7 +72,7 @@ const Home = (props) => {
           <h1 className='main-section-title'>Popular Beverages</h1>
           <div className='main-horizontal-scroller'>
             <div className='main-section-list'>
-              <div className='main-card'>
+              <div className='main-card' onClick={event => handleItemSelection(props, 0, 1)}>
                 <div className='main-card-header items'></div>
                 <div className='main-card-content'>
                   <h1 className='main-card-content-title'>Americano</h1>
@@ -107,5 +113,5 @@ const Home = (props) => {
       </div>
 )}
 
-const mapDispatchToProps = dispatch => bindActionCreators({changeActivePage, changeActiveShop}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({changeActivePage, changeActiveShop, changeActiveItem}, dispatch)
 export default connect(null,mapDispatchToProps)(Home)

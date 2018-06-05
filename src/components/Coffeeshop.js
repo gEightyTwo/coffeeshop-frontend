@@ -2,10 +2,16 @@ import React from 'react';
 import '../css/App.css';
 import {SideNav, SideNavItem, Button, Collapsible, CollapsibleItem, Collection, CollectionItem} from 'react-materialize'
 import io from 'socket.io-client';
+import { bindActionCreators } from 'redux'
 import {connect} from 'react-redux'
 
+import {changeActivePage, changeActiveItem} from '../actions'
 import Header from './Header'
 
+const handleItemSelection = (props, itemId) => {
+  props.changeActiveItem(itemId)
+  props.changeActivePage(2)
+}
 
 const Coffeeshop = (props) => {
   return (
@@ -22,7 +28,7 @@ const Coffeeshop = (props) => {
               <h2 className='coffeeshop-section-address'>171 S Jackson St, Seattle, WA 98101</h2>
           </div>
           <div className='coffeeshop-item-card-container'>
-            <div className='coffeeshop-item-card'>
+            <div className='coffeeshop-item-card' onClick={event=>handleItemSelection(props,1)}>
               <div>
                 <img className='coffeeshop-item-card-image' src={'https://media.istockphoto.com/photos/black-coffee-in-disposable-cup-with-clipping-path-picture-id529747627?k=6&m=529747627&s=612x612&w=0&h=lV2tGJlFgX-WQItNWbdZO8XVQHVSoUlbYod-7jKyU1I='}/>
                 <h1 className='coffeeshop-item-card-title'>Americano</h1>
@@ -62,6 +68,6 @@ const Coffeeshop = (props) => {
       </div>
 )}
 
-
+const mapDispatchToProps = dispatch => bindActionCreators({changeActivePage, changeActiveItem}, dispatch)
 const mapStateToProps = ({activePage}) => ({activePage})
-export default connect(mapStateToProps)(Coffeeshop)
+export default connect(mapStateToProps,mapDispatchToProps)(Coffeeshop)
