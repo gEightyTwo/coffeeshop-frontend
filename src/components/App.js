@@ -9,11 +9,8 @@ import Coffeeshop from './Coffeeshop'
 import Item from './Item'
 import Cart from './Cart'
 
-//
-//
 // const token = localStorage.getItem('token') || 12345
 // const socket = io.connect(`http://localhost:3000?token=${token}`, {reconnect: true})
-
 
 const handlePlaceOrder = event => {
   console.log('hi');

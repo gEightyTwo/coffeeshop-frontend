@@ -8,8 +8,6 @@ import {connect} from 'react-redux'
 import {changeActivePage, changeActiveItem} from '../actions'
 import Header from './Header'
 
-
-
 const handleItemSelection = (props, item) => {
   props.changeActiveItem(item)
   props.changeActivePage(2)
@@ -19,12 +17,8 @@ const Coffeeshop = (props) => {
   const {activeShop, allItems} = props
   return (
       <div className='main'>
-
         <Header/>
-
-
         <h2 className='coffeeshop-time'><i className="fas fa-walking"></i> 5 min</h2>
-
         <section className='coffeeshop-section'>
           <div className='coffeeshop-info'>
               <h1 className='coffeeshop-section-title'>{activeShop.shopName}</h1>
@@ -42,13 +36,9 @@ const Coffeeshop = (props) => {
             ))}
           </div>
         </section>
-
-
-
         <footer className='main-footer'>
           <p className='footer-text'>© 2018 Coffeeshop</p>
         </footer>
-
       </div>
 )}
 
