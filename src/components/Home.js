@@ -14,9 +14,9 @@ const handleShopSelection = (props, shopId) => {
   props.changeActivePage(1)
 }
 
-const handleItemSelection = (props, shopId, itemId) => {
+const handleItemSelection = (props, shopId, item) => {
   props.changeActiveShop(shopId)
-  props.changeActiveItem(itemId)
+  props.changeActiveItem(item)
   props.changeActivePage(2)
 }
 
@@ -32,7 +32,7 @@ const Home = (props) => {
           <div className='main-horizontal-scroller'>
             <div className='main-section-list'>
 
-              <div className='main-card' onClick={event => handleShopSelection(props, 0)}>
+              <div className='main-card' onClick={event => handleShopSelection(props, {id: '1', shopName: 'Zeitgeist Coffee', shopAddress: '171 S Jackson St, Seattle, WA 98101'})}>
                 <div className='main-card-header'></div>
                 <div className='main-card-content'>
                   <h1 className='main-card-content-title'>Zeitgeist Coffee</h1>
@@ -72,7 +72,17 @@ const Home = (props) => {
           <h1 className='main-section-title'>Popular Beverages</h1>
           <div className='main-horizontal-scroller'>
             <div className='main-section-list'>
-              <div className='main-card' onClick={event => handleItemSelection(props, 0, 1)}>
+              <div className='main-card' onClick={event => handleItemSelection(props, {id: '1', shopName: 'Zeitgeist Coffee', shopAddress: '171 S Jackson St, Seattle, WA 98101'}, {
+                productId: '1',
+                productName: 'Latte',
+                sizeId: '3',
+                sizeName: '12 oz',
+                milkId: '2',
+                milkName: '2% Milk',
+                shots: 2,
+                extraShots: 2,
+                price: 4.25
+              })}>
                 <div className='main-card-header items'></div>
                 <div className='main-card-content'>
                   <h1 className='main-card-content-title'>Americano</h1>
