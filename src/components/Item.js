@@ -5,7 +5,7 @@ import io from 'socket.io-client';
 import { bindActionCreators } from 'redux'
 import {connect} from 'react-redux'
 
-import {changeActivePage, addToCart} from '../actions'
+import {changeActivePage, addToCart,setActiveItemOptions} from '../actions'
 
 import Header from './Header'
 
@@ -15,7 +15,14 @@ const handleAddToCart = (props, item) => {
   props.changeActivePage(1)
 }
 
+const handleOptionSelect = (props, options) => {
+  console.log(props)
+  props.setActiveItemOptions(options)
+}
+
 const Item = (props) => {
+  console.log(props);
+  const {activeItem} = props
   return (
     <div className='main'>
 
@@ -26,38 +33,38 @@ const Item = (props) => {
 
       <section className='coffeeshop-section'>
         <div className='coffeeshop-info'>
-            <h1 className='coffeeshop-section-title'>Latte</h1>
-            <h2 className='coffeeshop-section-address'>$3.75</h2>
+            <h1 className='coffeeshop-section-title'>{activeItem.productName}</h1>
+            <h2 className='coffeeshop-section-address'>${parseFloat(activeItem.price).toFixed(2)}</h2>
         </div>
         <div className='item-options-item-card-container'>
           <Collapsible accordion defaultActiveKey={null} style={{boxShadow: 'none', border: 'none'}}>
-            <CollapsibleItem header={'Size - 12 oz'} icon='filter_drama' style={{fontSize: '12px'}}>
+            <CollapsibleItem header={'Size - ' + activeItem.sizeName} icon='filter_drama' style={{fontSize: '12px'}}>
               <Collection>
-                <CollectionItem href='#' >8 oz</CollectionItem>
-                <CollectionItem href='#' active>12 oz</CollectionItem>
-                <CollectionItem href='#' >16 oz</CollectionItem>
+                {['8 oz','12 oz', '16 oz'].map(el=>(
+                  <CollectionItem href='#' active={activeItem.sizeName===el} onClick={()=>handleOptionSelect(props,{sizeName: el})}>{el}</CollectionItem>
+                ))}
               </Collection>
             </CollapsibleItem>
-            <CollapsibleItem header={'Milk - 2% Milk'} icon='filter_drama' style={{fontSize: '12px'}}>
+            { activeItem.milkName ?
+            <CollapsibleItem header={'Milk - ' + activeItem.milkName} icon='filter_drama' style={{fontSize: '12px'}}>
               <Collection>
-                <CollectionItem href='#'>Skim Milk</CollectionItem>
-                <CollectionItem href='#' active>2% Milk</CollectionItem>
-                <CollectionItem href='#'>Whole Milk</CollectionItem>
-                <CollectionItem href='#'>Almond Milk</CollectionItem>
-                <CollectionItem href='#'>Soy Milk</CollectionItem>
+                {['Skim Milk','2% Milk', 'Whole Milk', 'Almond Milk', 'Soy Milk'].map(el=>(
+                  <CollectionItem href='#' active={activeItem.milkName===el} onClick={()=>handleOptionSelect(props,{milkName: el})}>{el}</CollectionItem>
+                ))}
               </Collection>
             </CollapsibleItem>
-            <CollapsibleItem header={'Espresso - Double Shot'} icon='place' style={{fontSize: '12px'}}>
+            : null
+            }
+            <CollapsibleItem header={'Espresso - ' + (activeItem.shots + activeItem.extraShots) + ' Shots'} icon='place' style={{fontSize: '12px'}}>
               <Collection>
-                <CollectionItem href='#'>Single Shot</CollectionItem>
-                <CollectionItem href='#' active>Double Shot</CollectionItem>
-                <CollectionItem href='#'>Triple Shot</CollectionItem>
-                <CollectionItem href='#'>Quad Shot</CollectionItem>
+                {[0, 1, 2].map(el=>(
+                  <CollectionItem href='#' active={activeItem.extraShots===el} onClick={()=>handleOptionSelect(props,{extraShots: el})}>{activeItem.shots + el} Shots</CollectionItem>
+                ))}
               </Collection>
             </CollapsibleItem>
           </Collapsible>
         </div>
-        <Button waves='light' className='item-options-add-button' onClick={event => handleAddToCart(props, {item: 'Americano'})}>Add to Order</Button>
+        <Button waves='light' className='item-options-add-button' onClick={event => handleAddToCart(props, activeItem)}>Add to Order</Button>
       </section>
 
 
@@ -69,6 +76,6 @@ const Item = (props) => {
     </div>
 )}
 
-const mapDispatchToProps = dispatch => bindActionCreators({changeActivePage, addToCart}, dispatch)
-const mapStateToProps = ({activePage}) => ({activePage})
+const mapDispatchToProps = dispatch => bindActionCreators({changeActivePage, addToCart, setActiveItemOptions}, dispatch)
+const mapStateToProps = ({activeItem}) => ({activeItem})
 export default connect(mapStateToProps,mapDispatchToProps)(Item)

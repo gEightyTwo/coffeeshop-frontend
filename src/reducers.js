@@ -5,6 +5,7 @@ import {
   CHANGE_ACTIVE_PAGE,
   CHANGE_ACTIVE_SHOP,
   CHANGE_ACTIVE_ITEM,
+  SET_ACTIVE_ITEM_OPTIONS,
   ADD_TO_CART,
   REMOVE_FROM_CART,
   SET_PICKUP_TIME
@@ -165,6 +166,7 @@ const activeItem = (state = INITIAL_ITEM, action) => {
   console.log(state);
   switch(action.type){
     case CHANGE_ACTIVE_ITEM: return action.payload
+    case SET_ACTIVE_ITEM_OPTIONS: return {...state, ...action.payload}
     default: return state
   }
 }

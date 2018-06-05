@@ -4,6 +4,7 @@ import axios from 'axios'
 export const CHANGE_ACTIVE_PAGE = 'CHANGE_ACTIVE_PAGE'
 export const CHANGE_ACTIVE_SHOP = 'CHANGE_ACTIVE_SHOP'
 export const CHANGE_ACTIVE_ITEM = 'CHANGE_ACTIVE_ITEM'
+export const SET_ACTIVE_ITEM_OPTIONS = 'SET_ACTIVE_ITEM_OPTION'
 export const ADD_TO_CART = 'ADD_TO_CART'
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 export const SET_PICKUP_TIME = 'SET_PICKUP_TIME'
@@ -42,11 +43,11 @@ export const changeActivePage = pageId => (
   }
 )
 
-export const changeActiveShop = shopId => (
+export const changeActiveShop = shop => (
   dispatch => {
       dispatch({
         type: CHANGE_ACTIVE_SHOP,
-        payload: shops.find(el => el.id === shopId)
+        payload: shop
       })
   }
 )
@@ -57,6 +58,15 @@ export const changeActiveItem = item => (
       dispatch({
         type: CHANGE_ACTIVE_ITEM,
         payload: item
+      })
+  }
+)
+
+export const setActiveItemOptions = options => (
+  dispatch => {
+      dispatch({
+        type: SET_ACTIVE_ITEM_OPTIONS,
+        payload: options
       })
   }
 )
