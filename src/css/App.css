@@ -51,6 +51,7 @@ div.shopping-cart  {
   font-size: 20px;
   padding: 20px;
   color: rgb(255,255,255);
+  cursor: pointer;
 }
 
 .side-nav {
@@ -217,7 +218,7 @@ header.main-header.coffeeshop {
 
 .coffeeshop-item-card {
   height: 100px;
-  border-bottom: 1px solid rgba(45,30,23,.15);
+  border-bottom: 1px solid rgba(45,30,23,.07);
   display: flex;
   justify-content: space-between;
   align-items: center;
