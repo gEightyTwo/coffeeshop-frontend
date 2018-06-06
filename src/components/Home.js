@@ -8,7 +8,6 @@ import {connect} from 'react-redux'
 import {changeActivePage,changeActiveShop, changeActiveItem} from '../actions'
 import Header from './Header'
 
-
 const handleShopSelection = (props, shopId) => {
   props.changeActiveShop(shopId)
   props.changeActivePage(1)
@@ -24,14 +23,11 @@ const handleItemSelection = (props, shopId, item) => {
 const Home = (props) => {
   return (
       <div className='main'>
-
         <Header />
-
         <section className='main-section'>
           <h1 className='main-section-title'>Top Coffeeshops</h1>
           <div className='main-horizontal-scroller'>
             <div className='main-section-list'>
-
               <div className='main-card' onClick={event => handleShopSelection(props, {id: '1', shopName: 'Zeitgeist Coffee', shopAddress: '171 S Jackson St, Seattle, WA 98101'})}>
                 <div className='main-card-header'></div>
                 <div className='main-card-content'>
@@ -55,7 +51,6 @@ const Home = (props) => {
                   <h2 className='main-card-content-time'><i className="fas fa-walking"></i> 10 min</h2>
                 </div>
               </div>
-
               <div className='main-card'>
                 <div className='main-card-header'></div>
                 <div className='main-card-content'>
@@ -63,8 +58,6 @@ const Home = (props) => {
                   <h2 className='main-card-content-time'><i className="fas fa-walking"></i> 15 min</h2>
                 </div>
               </div>
-
-
             </div>
           </div>
         </section>
@@ -113,13 +106,9 @@ const Home = (props) => {
             </div>
           </div>
         </section>
-
-
-
         <footer className='main-footer'>
           <p className='footer-text'>© 2018 Coffeeshop</p>
         </footer>
-
       </div>
 )}
 
