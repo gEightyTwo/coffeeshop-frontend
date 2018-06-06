@@ -13,7 +13,9 @@ const pages = [
   {id: 0, name: 'home'},
   {id: 1, name: 'coffeeshop'},
   {id: 2, name: 'item'},
-  {id: 3, name: 'cart'}
+  {id: 3, name: 'cart'},
+  {id: 4, name: 'register'},
+  {id: 5, name: 'login'}
 ]
 
 const shops = [

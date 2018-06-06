@@ -386,3 +386,47 @@ h1.cart-section-title-total {
   letter-spacing: 0.5px;
   text-align: left;
 }
+
+
+
+/* Register */
+
+
+section.register-section {
+  width: auto;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+img.registerLogo {
+  margin: auto;
+  width: 200px;
+  border-radius: 100px;
+}
+
+form.register-form {
+  padding: 50px 20px 100px 20px;
+}
+
+.register-link {
+  text-align: right;
+  font-size: 12px;
+  margin: 0px;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+
+header.auth-header {
+  width: 100%;
+  height: 200px;
+  background: url('https://cdn.shopify.com/s/files/1/0226/2177/products/Candy_Relics_Rubber_paper_Cup_front_large.png?v=1458335543');
+  background-position: center;
+  background-size:contain;
+  background-repeat: no-repeat;
+  /* border-bottom: 1px solid rgba(45,30,23,.3); */
+  background-color: white;
+}

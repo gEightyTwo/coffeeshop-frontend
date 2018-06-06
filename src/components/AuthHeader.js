@@ -5,18 +5,16 @@ import { bindActionCreators } from 'redux'
 import {connect} from 'react-redux'
 
 import {changeActivePage} from '../actions'
-import { request, AuthenticationService, withAuthentication } from '../helpers'
-
 
 const token = localStorage.getItem('token') || 12345
 
 
-const Header = (props) => {
+const AuthHeader = (props) => {
   return (
-    <header className={`main-header ${props.activePage.id ? 'coffeeshop': null}`}>
+    <header className='auth-header'>
       <div className='main-header-nav'>
         <SideNav
-          trigger={<div className='hamburger-menu'><i className="fas fa-bars"></i></div>}
+          trigger={<div className='hamburger-menu grey-text text-darken-2'><i className="fas fa-bars"></i></div>}
           options={{closeOnClick: true}}
         >
           <SideNavItem subheader={true}>Welcome to Coffeeshop</SideNavItem>
@@ -27,14 +25,13 @@ const Header = (props) => {
           <SideNavItem waves={true} href='#!third'>Favorite Drinks</SideNavItem>
           <SideNavItem divider={true}/>
           <SideNavItem href='#!icon' waves={true}>Sign In</SideNavItem>
-          <SideNavItem href='#!icon' waves={true} onClick={event=>AuthenticationService.setAuthState(null)}>Sign Out</SideNavItem>
           <SideNavItem href='#!second' waves={true} >New Account</SideNavItem>
         </SideNav>
-        <div className='shopping-cart' onClick={event=>props.changeActivePage(3)}><i className="fas fa-shopping-cart"></i></div>
+        <div className='shopping-cart'></div>
       </div>
     </header>
 )}
 
 const mapDispatchToProps = dispatch => bindActionCreators({changeActivePage}, dispatch)
 const mapStateToProps = ({activePage}) => ({activePage})
-export default connect(mapStateToProps, mapDispatchToProps)(Header)
+export default connect(mapStateToProps, mapDispatchToProps)(AuthHeader)
