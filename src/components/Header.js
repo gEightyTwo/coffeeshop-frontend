@@ -14,19 +14,18 @@ const Header = (props) => {
     <header className={`main-header ${props.activePage.id ? 'coffeeshop': null}`}>
       <div className='main-header-nav'>
         <SideNav
-          trigger={
-            <div className='hamburger-menu'><i className="fas fa-bars"></i></div>
-          }
-          options={{closeOnClick: true}}>
-          <SideNavItem href='#!icon' waves={true}>Sign In</SideNavItem>
-          <SideNavItem href='#!second' waves={true} >New Account</SideNavItem>
-          <SideNavItem divider={true}/>
+          trigger={<div className='hamburger-menu'><i className="fas fa-bars"></i></div>}
+          options={{closeOnClick: true}}
+        >
           <SideNavItem subheader={true}>Welcome to Coffeeshop</SideNavItem>
           <SideNavItem waves={true} onClick={event=>props.changeActivePage(0)}>Home</SideNavItem>
           <SideNavItem waves={true} onClick={event=>props.changeActivePage(3)}>Cart</SideNavItem>
           <SideNavItem waves={true} href='#!third'>Order History</SideNavItem>
           <SideNavItem waves={true} href='#!third'>Favorite Shops</SideNavItem>
           <SideNavItem waves={true} href='#!third'>Favorite Drinks</SideNavItem>
+          <SideNavItem divider={true}/>
+          <SideNavItem href='#!icon' waves={true}>Sign In</SideNavItem>
+          <SideNavItem href='#!second' waves={true} >New Account</SideNavItem>
         </SideNav>
         <div className='shopping-cart' onClick={event=>props.changeActivePage(3)}><i className="fas fa-shopping-cart"></i></div>
       </div>

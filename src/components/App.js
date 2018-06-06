@@ -8,12 +8,10 @@ import Home from './Home'
 import Coffeeshop from './Coffeeshop'
 import Item from './Item'
 import Cart from './Cart'
+import { request, AuthenticationService } from '../helpers'
 
-//
-//
 // const token = localStorage.getItem('token') || 12345
 // const socket = io.connect(`http://localhost:3000?token=${token}`, {reconnect: true})
-
 
 const handlePlaceOrder = event => {
   console.log('hi');
@@ -21,6 +19,18 @@ const handlePlaceOrder = event => {
 }
 
 const App = (props) => {
+
+  request('/auth/token')
+    .then(response => {
+      AuthenticationService.setAuthState(response.data)
+      return request('/users')
+    })
+    .then(response => {
+      const authState = AuthenticationService.getAuthState()
+      const activeUser = response.data.data.find(el => el.id === authState.id)
+      AuthenticationService.setAuthState(activeUser)
+    })
+
   return (
     <div className='container'>
       {props.activePage.id === 0 ? <Home/> : null}
@@ -28,7 +38,8 @@ const App = (props) => {
       {props.activePage.id === 2 ? <Item/> : null}
       {props.activePage.id === 3 ? <Cart/> : null}
     </div>
-)}
+  )
+}
 
 
 const mapStateToProps = ({activePage}) => ({activePage})
