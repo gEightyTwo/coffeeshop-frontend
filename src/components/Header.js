@@ -5,8 +5,7 @@ import { bindActionCreators } from 'redux'
 import {connect} from 'react-redux'
 
 import {changeActivePage} from '../actions'
-import { request, AuthenticationService, withAuthentication } from '../helpers'
-
+import { request, AuthenticationService, withAuthentication, getAuthState } from '../helpers'
 
 const token = localStorage.getItem('token') || 12345
 
@@ -26,9 +25,12 @@ const Header = (props) => {
           <SideNavItem waves={true} href='#!third'>Favorite Shops</SideNavItem>
           <SideNavItem waves={true} href='#!third'>Favorite Drinks</SideNavItem>
           <SideNavItem divider={true}/>
-          <SideNavItem href='#!icon' waves={true}>Sign In</SideNavItem>
-          <SideNavItem href='#!icon' waves={true} onClick={event=>AuthenticationService.setAuthState(null)}>Sign Out</SideNavItem>
-          <SideNavItem href='#!second' waves={true} >New Account</SideNavItem>
+          { // works but does not update state, need to mkae sure state is updated on logout to trigger
+            AuthenticationService.getAuthState() ?
+              <SideNavItem href='#!icon' waves={true} onClick={event=>props.changeActivePage(5)}>Sign In</SideNavItem> :
+              <SideNavItem href='#!icon' waves={true} onClick={event=>AuthenticationService.setAuthState(null)}>Sign Out</SideNavItem>
+          }
+          <SideNavItem href='#!second' waves={true} onClick={event=>props.changeActivePage(4)} >New Account</SideNavItem>
         </SideNav>
         <div className='shopping-cart' onClick={event=>props.changeActivePage(3)}><i className="fas fa-shopping-cart"></i></div>
       </div>

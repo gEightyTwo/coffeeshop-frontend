@@ -1,5 +1,5 @@
 import axios from 'axios'
-// import { request } from './helpers'
+import { request } from './helpers'
 
 export const CHANGE_ACTIVE_PAGE = 'CHANGE_ACTIVE_PAGE'
 export const CHANGE_ACTIVE_SHOP = 'CHANGE_ACTIVE_SHOP'
@@ -8,6 +8,10 @@ export const SET_ACTIVE_ITEM_OPTIONS = 'SET_ACTIVE_ITEM_OPTION'
 export const ADD_TO_CART = 'ADD_TO_CART'
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 export const SET_PICKUP_TIME = 'SET_PICKUP_TIME'
+export const GET_ALL_SHOPS = 'GET_ALL_SHOPS'
+export const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'
+export const GET_ALL_OPTIONS = 'GET_ALL_OPTIONS'
+export const GET_ALL_USER_ORDERS = 'GET_ALL_USER_ORDERS'
 
 const pages = [
   {id: 0, name: 'home'},
@@ -17,15 +21,12 @@ const pages = [
   {id: 4, name: 'register'},
   {id: 5, name: 'login'}
 ]
-
 const shops = [
   {id: 0, name: 'Zeitgeist Coffee'},
   {id: 1, name: 'Cherry Street'},
   {id: 2, name: 'Elm Coffee Roasters'},
   {id: 3, name: 'Other CoffeeShop'},
 ]
-
-
 const items = [
   {id: 0, name: 'Americano'},
   {id: 1, name: 'Latte'},
@@ -102,15 +103,71 @@ export const setPickupTime = time => (
   }
 )
 
-//
-// export const doAction = () => (
-//   dispatch => {
-//     axios.get(`${API}/api/`)
-//     .then((response) => {
-//       dispatch({
-//         type: DO_ACTION,
-//         payload: response.data.data
-//       })
-//     })
-//   }
-// )
+export const getAllShops = () => (
+  dispatch => {
+    axios.get(`${API}/api/customer/shops`)
+    .then((response) => {
+      dispatch({
+        type: GET_ALL_SHOPS,
+        payload: response.data.data
+      })
+    })
+  }
+)
+
+export const getAllProducts = () => (
+  dispatch => {
+    axios.get(`${API}/api/customer/Products`)
+    .then((response) => {
+      dispatch({
+        type: GET_ALL_PRODUCTS,
+        payload: response.data.data
+      })
+    })
+  }
+)
+
+export const getAllOptions = () => (
+  dispatch => {
+    axios.get(`${API}/api/customer/options`)
+    .then((response) => {
+      dispatch({
+        type: GET_ALL_OPTIONS,
+        payload: response.data.data
+      })
+    })
+  }
+)
+
+export const getAllUserOrders = (userId) => (
+  dispatch => {
+    request(`/api/customer/${userId}/orders`,'get')
+    .then(response => {
+      dispatch({
+        type: GET_ALL_USER_ORDERS,
+        payload: response.data.data
+      })
+    })
+  }
+)
+
+export const createUserOrder = (userId, body) => (
+  dispatch => {
+    request(`/api/customer/${userId}/orders`,'post', body)
+    .then(response => {
+      dispatch(getAllUserOrders())
+    })
+  }
+)
+
+export const editUserOrder = (userId, orderId, body) => {
+  //console.log(`/api/snacks/${userId}/reviews/${orderId}`);
+  return (
+  dispatch => {
+    //console.log(body)
+    request(`/api/snacks/${userId}/reviews/${orderId}`,'put', body)
+    .then(response => {
+      dispatch(getAllUserOrders())
+    })
+  }
+)}
