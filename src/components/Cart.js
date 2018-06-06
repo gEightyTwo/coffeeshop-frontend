@@ -7,20 +7,27 @@ import {connect} from 'react-redux'
 
 import {changeActivePage, addToCart, removeFromCart, setPickupTime} from '../actions'
 import Header from './Header'
-import { withAuthentication } from '../helpers'
+import { request, AuthenticationService, withAuthentication } from '../helpers'
+
 
 //
 // const token = localStorage.getItem('token') || 12345
 // const socket = io.connect(`http://localhost:3000?token=${token}`, {reconnect: true})
 
 
-const handlePlaceOrder = event => {
+const handlePlaceOrder = (event,props) => {
   console.log('hi');
+  if (props.authState) {
+    console.log('hiiiiiiii');
+  } else {
+    props.changeActivePage(5)
+  }
   // socket.emit('chat message',`${token}`)
 }
 
 const Cart = (props) => {
   const {shopId, pickupTime, orderItems} = props.cart
+  console.log(props)
   return (
       <div className='main'>
 
@@ -60,7 +67,7 @@ const Cart = (props) => {
             <h1 className='cart-section-title-total'>Order Total</h1>
             <h1 className='cart-section-title-total'>${parseFloat(orderItems.reduce((acc,item)=>acc+item.price,0)).toFixed(2) || 0}</h1>
           </div>
-          <Button waves='light' className='cart-item-order-button' onClick={handlePlaceOrder}>Place Order</Button>
+          <Button waves='light' className='cart-item-order-button' onClick={event=>handlePlaceOrder(event,props)}>Place Order</Button>
 
         </section>
 
