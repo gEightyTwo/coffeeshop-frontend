@@ -4,6 +4,8 @@ import {SideNav, SideNavItem, Button, Collapsible, CollapsibleItem, Collection, 
 import io from 'socket.io-client';
 import { bindActionCreators } from 'redux'
 import {connect} from 'react-redux'
+import { Swipeable } from 'react-touch';
+
 
 import {changeActivePage, addToCart,setActiveItemOptions} from '../actions'
 
@@ -24,9 +26,11 @@ const Item = (props) => {
   console.log(props);
   const {activeItem} = props
   return (
-    <div className='main'>
+    <Swipeable onSwipeLeft={()=>props.changeActivePage(1)}>
 
-      <Header/>
+    <div className='main'>
+        <Header/>
+
 
 
       <h2 className='coffeeshop-time'><i className="fas fa-walking"></i> 5 min</h2>
@@ -37,11 +41,11 @@ const Item = (props) => {
             <h2 className='coffeeshop-section-address'>${parseFloat(activeItem.price).toFixed(2)}</h2>
         </div>
         <div className='item-options-item-card-container'>
-          <Collapsible accordion defaultActiveKey={null} style={{boxShadow: 'none', border: 'none'}}>
+          <Collapsible accordion defaultActiveKey={null} style={{boxShadow: 'none', border: 'none'}}  id='asd'>
             <CollapsibleItem header={'Size - ' + activeItem.sizeName} icon='filter_drama' style={{fontSize: '12px'}}>
               <Collection>
                 {['8 oz','12 oz', '16 oz'].map(el=>(
-                  <CollectionItem href='#' active={activeItem.sizeName===el} onClick={()=>handleOptionSelect(props,{sizeName: el})}>{el}</CollectionItem>
+                  <CollectionItem active={activeItem.sizeName===el} onClick={()=>handleOptionSelect(props,{sizeName: el})}>{el}</CollectionItem>
                 ))}
               </Collection>
             </CollapsibleItem>
@@ -49,7 +53,7 @@ const Item = (props) => {
             <CollapsibleItem header={'Milk - ' + activeItem.milkName} icon='filter_drama' style={{fontSize: '12px'}}>
               <Collection>
                 {['Skim Milk','2% Milk', 'Whole Milk', 'Almond Milk', 'Soy Milk'].map(el=>(
-                  <CollectionItem href='#' active={activeItem.milkName===el} onClick={()=>handleOptionSelect(props,{milkName: el})}>{el}</CollectionItem>
+                  <CollectionItem active={activeItem.milkName===el} onClick={()=>handleOptionSelect(props,{milkName: el})}>{el}</CollectionItem>
                 ))}
               </Collection>
             </CollapsibleItem>
@@ -58,7 +62,7 @@ const Item = (props) => {
             <CollapsibleItem header={'Espresso - ' + (activeItem.shots + activeItem.extraShots) + ' Shots'} icon='place' style={{fontSize: '12px'}}>
               <Collection>
                 {[0, 1, 2].map(el=>(
-                  <CollectionItem href='#' active={activeItem.extraShots===el} onClick={()=>handleOptionSelect(props,{extraShots: el})}>{activeItem.shots + el} Shots</CollectionItem>
+                  <CollectionItem active={activeItem.extraShots===el} onClick={()=>handleOptionSelect(props,{extraShots: el})}>{activeItem.shots + el} Shots</CollectionItem>
                 ))}
               </Collection>
             </CollapsibleItem>
@@ -74,6 +78,8 @@ const Item = (props) => {
       </footer>
 
     </div>
+    </Swipeable>
+
 )}
 
 const mapDispatchToProps = dispatch => bindActionCreators({changeActivePage, addToCart, setActiveItemOptions}, dispatch)

@@ -18,7 +18,7 @@ body {
 
 .container {
   display: block;
-  width: 375px;
+  width: auto;
   height: 100vh;
   margin: 0px auto;
   font-size: 0px;
@@ -76,7 +76,7 @@ footer.main-footer .footer-text {
 
 
 section.main-section {
-  width: 375px;
+  width: auto;
   height: 260px;
   border-bottom: 1px solid rgba(45,30,23,.15);
   background-color: white;
@@ -91,7 +91,7 @@ h1.main-section-title {
 }
 
 .main-horizontal-scroller {
-  width: 375px;
+  width: auto;
   height: 200px;
   overflow: scroll;
   vertical-align: top;
@@ -170,7 +170,7 @@ h2.main-card-content-time {
 
 
 section.coffeeshop-section {
-  width: 375px;
+  width: auto;
   border-bottom: 1px solid rgba(45,30,23,.15);
   background-color: white;
 }
@@ -268,7 +268,7 @@ h1.coffeeshop-item-card-title {
 
 
 section.cart-section {
-  width: 375px;
+  width: auto;
   /* border-bottom: 1px solid rgba(45,30,23,.15); */
   background-color: white;
 }

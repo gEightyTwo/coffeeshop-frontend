@@ -11,7 +11,7 @@ import {
   SET_PICKUP_TIME
 } from './actions'
 
-const INITIAL_PAGE = {id: 1, pageName: 'home'}
+const INITIAL_PAGE = {id: 0, pageName: 'home'}
 const INITIAL_SHOP = {id: '1', shopName: 'Zeitgeist Coffee', shopAddress: '171 S Jackson St, Seattle, WA 98101'}
 const INITIAL_ALL_ITEMS = [
   {
