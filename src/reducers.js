@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
 import {
-  // GET_ALL_ITEMS,
+  GET_ALL_PRODUCTS,
   CHANGE_ACTIVE_PAGE,
   CHANGE_ACTIVE_SHOP,
   CHANGE_ACTIVE_ITEM,
@@ -13,6 +13,7 @@ import {
 
 const INITIAL_PAGE = {id: 0, pageName: 'home'}
 const INITIAL_SHOP = {id: '1', shopName: 'Zeitgeist Coffee', shopAddress: '171 S Jackson St, Seattle, WA 98101'}
+
 const INITIAL_ALL_ITEMS = [
   {
     shopId: '1',
@@ -182,7 +183,7 @@ const cart = (state = INITIAL_CART, action) => {
 
 const allItems = (state = INITIAL_ALL_ITEMS, action) => {
   switch(action.type){
-    // case GET_ALL_ITEMS: return action.payload
+    case GET_ALL_PRODUCTS: return action.payload
     default: return state
   }
 }
