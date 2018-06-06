@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import {connect} from 'react-redux'
 
 import {changeActivePage} from '../actions'
-import { request, AuthenticationService, withAuthentication, getAuthState } from '../helpers'
+import { request, AuthenticationService, withAuthentication } from '../helpers'
 
 const token = localStorage.getItem('token') || 12345
 
@@ -26,11 +26,14 @@ const Header = (props) => {
           <SideNavItem waves={true} href='#!third'>Favorite Drinks</SideNavItem>
           <SideNavItem divider={true}/>
           { // works but does not update state, need to mkae sure state is updated on logout to trigger
-            AuthenticationService.getAuthState() ?
-              <SideNavItem href='#!icon' waves={true} onClick={event=>props.changeActivePage(5)}>Sign In</SideNavItem> :
-              <SideNavItem href='#!icon' waves={true} onClick={event=>AuthenticationService.setAuthState(null)}>Sign Out</SideNavItem>
+            props.authState
+            ? <SideNavItem href='#!icon' waves={true} onClick={event=>AuthenticationService.setAuthState(null)}>Sign Out</SideNavItem>
+            : <div>
+              <SideNavItem href='#!icon' waves={true} onClick={event=>props.changeActivePage(5)}>Sign In</SideNavItem>
+              <SideNavItem href='#!second' waves={true} onClick={event=>props.changeActivePage(4)} >New Account</SideNavItem>
+            </div>
           }
-          <SideNavItem href='#!second' waves={true} onClick={event=>props.changeActivePage(4)} >New Account</SideNavItem>
+
         </SideNav>
         <div className='shopping-cart' onClick={event=>props.changeActivePage(3)}><i className="fas fa-shopping-cart"></i></div>
       </div>
@@ -39,4 +42,4 @@ const Header = (props) => {
 
 const mapDispatchToProps = dispatch => bindActionCreators({changeActivePage}, dispatch)
 const mapStateToProps = ({activePage}) => ({activePage})
-export default connect(mapStateToProps, mapDispatchToProps)(Header)
+export default connect(mapStateToProps, mapDispatchToProps)(withAuthentication(Header))
