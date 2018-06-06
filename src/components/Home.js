@@ -7,8 +7,6 @@ import {connect} from 'react-redux'
 
 import {changeActivePage,changeActiveShop, changeActiveItem} from '../actions'
 import Header from './Header'
-import CoffeeShopCard from './CoffeeShopCard'
-
 
 const handleShopSelection = (props, shopId) => {
   props.changeActiveShop(shopId)

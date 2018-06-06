@@ -7,6 +7,7 @@ import {connect} from 'react-redux'
 
 import {changeActivePage, addToCart, removeFromCart, setPickupTime} from '../actions'
 import Header from './Header'
+import { withAuthentication } from '../helpers'
 
 //
 // const token = localStorage.getItem('token') || 12345
@@ -68,4 +69,4 @@ const Cart = (props) => {
 
 const mapDispatchToProps = dispatch => bindActionCreators({changeActivePage, addToCart, removeFromCart,setPickupTime}, dispatch)
 const mapStateToProps = ({activePage, cart}) => ({activePage,cart})
-export default connect(mapStateToProps,mapDispatchToProps)(Cart)
+export default connect(mapStateToProps,mapDispatchToProps)(withAuthentication(Cart))
