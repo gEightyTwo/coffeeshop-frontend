@@ -46,7 +46,7 @@ const handlePlaceOrder = (event,props) => {
 
 const Cart = (props) => {
   const {shopId, pickupTime, orderItems} = props.cart
-  //console.log(props)
+  console.log(props.cart)
   return (
       <div className='main'>
         <Header/>
@@ -89,5 +89,6 @@ const Cart = (props) => {
 )}
 
 const mapDispatchToProps = dispatch => bindActionCreators({changeActivePage, addToCart, removeFromCart,setPickupTime, createUserOrder}, dispatch)
-const mapStateToProps = ({activePage, cart}) => ({activePage,cart})
+const mapStateToProps = ({activePage, cart, allShops}) => ({activePage, cart, allShops})
+
 export default connect(mapStateToProps,mapDispatchToProps)(withAuthentication(Cart))
