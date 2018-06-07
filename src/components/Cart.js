@@ -4,28 +4,44 @@ import {SideNav, SideNavItem, Button, Collapsible, CollapsibleItem, Collection, 
 import io from 'socket.io-client';
 import { bindActionCreators } from 'redux'
 import {connect} from 'react-redux'
+import moment from 'moment'
+
 
 import {changeActivePage, addToCart, removeFromCart, setPickupTime,createUserOrder} from '../actions'
 import Header from './Header'
 import { request, AuthenticationService, withAuthentication } from '../helpers'
 
 
-//
-// const token = localStorage.getItem('token') || 12345
-// const socket = io.connect(`http://localhost:3000?token=${token}`, {reconnect: true})
+
+const token = localStorage.getItem('token') || 12345
+const socket = io.connect(`http://localhost:3000?token=${token}`, {reconnect: true})
 
 
 const handlePlaceOrder = (event,props) => {
-  console.log('hi');
   if (props.authState) {
     console.log('Oh, Hi Mark');
     const userId = props.authState ? props.authState.id : null
-    const payload = '{"shopId":"1","pickupTime":"2018-05-05 06:00:00","orderItems":[{"productWithOptionsId":"2","sizeId":"3","milkId":"2","extraId":"1","extraShots":2},{"productWithOptionsId":"1","sizeId":"1","milkId":"1","extraId":"1","extraShots":0}]}'
+    // const payload = '{"shopId":"1","pickupTime":"2018-05-05 06:00:00","orderItems":[{"productId":"2","productName":"Latte","sizeId":"3","sizeName":"16 oz","milkId":"2","milkName":"2% Milk","shots":2,"extraShots":2,"price":4.75},{"productId":"2","productName":"Americano","sizeId":"2","sizeName":"12 oz","milkId":"0","milkName":null,"shots":2,"extraShots":0,"price":3.25}]}'
+    // const payload = '{"orderId":"#AS6ASF876","shopId":"1","orderUserName":"Dan Dog","isFullfilled":false,"isCancelled":false,"pickupTime":15,"orderItems":[{"productId":"2","productName":"Latte","sizeId":"3","sizeName":"16 oz","milkId":"2","milkName":"2% Milk","shots":2,"extraShots":2,"price":4.75},{"productId":"2","productName":"Americano","sizeId":"2","sizeName":"12 oz","milkId":"0","milkName":null,"shots":2,"extraShots":0,"price":3.25}]}'
+    // const payload = '{"shopId":"1","pickupTime":"2018-05-05 06:00:00","orderItems":[{"productWithOptionsId":"2","sizeId":"3","milkId":"2","extraId":"1","extraShots":2},{"productWithOptionsId":"1","sizeId":"1","milkId":"1","extraId":"1","extraShots":0}]}'
+    // const payload = '{"shopId":"1","pickupTime":"2018-05-05 06:00:00","orderItems":[{"productWithOptionsId":"2","sizeId":"3","milkId":"2","extraId":"1","extraShots":2},{"productWithOptionsId":"2","sizeId":"2","milkId":"1","extraId":"1","extraShots":0}]}'
+    const {shopId,pickupTime,orderItems} = props.cart
+    const payloadOrderItems = orderItems.map(item => {
+      const {productId, sizeId, milkId, extraId, extraShots} = item
+      return {productWithOptionsId: productId, sizeId, milkId, extraId:"1", extraShots}
+    })
+    const payloadCart = {shopId,pickupTime:moment().add(props.cart.pickupTime,'minutes'),orderItems:payloadOrderItems}
+    console.log(payloadCart);
+
+    // console.log(props.cart,JSON.stringify(props.cart))
+    const payload = JSON.stringify(payloadCart)
+    // console.log(JSON.stringify(payloadCart));
     props.createUserOrder(userId,payload)
+    socket.emit('chat message',`${token}`)
+    // props.changeActivePage(0)
   } else {
     props.changeActivePage(5)
   }
-  // socket.emit('chat message',`${token}`)
 }
 
 const Cart = (props) => {

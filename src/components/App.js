@@ -14,7 +14,7 @@ import { request, AuthenticationService } from '../helpers'
 
 // const token = localStorage.getItem('token') || 12345
 // const socket = io.connect(`http://localhost:3000?token=${token}`, {reconnect: true})
-// 
+//
 // const handlePlaceOrder = event => {
 //   console.log('hi');
 //   // socket.emit('chat message',`${token}`)
@@ -25,13 +25,13 @@ const App = (props) => {
   request('/auth/token')
     .then(response => {
       AuthenticationService.setAuthState(response.data)
-      return request('/users')
+      // return request('/users')
     })
-    .then(response => {
-      const authState = AuthenticationService.getAuthState()
-      const activeUser = response.data.data.find(el => el.id === authState.id)
-      AuthenticationService.setAuthState(activeUser)
-    })
+    // .then(response => {
+    //   const authState = AuthenticationService.getAuthState()
+    //   const activeUser = response.data.data.find(el => el.id === authState.id)
+    //   AuthenticationService.setAuthState(activeUser)
+    // })
 
   return (
     <div className='container'>

@@ -135,11 +135,11 @@ const INITIAL_CART = {
       price: 4.75
     },
     {
-      productId: '2',
+      productId: '1',
       productName: 'Americano',
       sizeId: '2',
       sizeName: '12 oz',
-      milkId: '0',
+      milkId: '1',
       milkName: null,
       shots: 2,
       extraShots: 0,
