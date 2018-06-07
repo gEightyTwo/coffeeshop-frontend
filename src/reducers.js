@@ -8,7 +8,8 @@ import {
   SET_ACTIVE_ITEM_OPTIONS,
   ADD_TO_CART,
   REMOVE_FROM_CART,
-  SET_PICKUP_TIME
+  SET_PICKUP_TIME,
+  GET_ALL_SHOPS,
 } from './actions'
 
 const INITIAL_PAGE = {id: 0, pageName: 'home'}
@@ -182,8 +183,17 @@ const cart = (state = INITIAL_CART, action) => {
 }
 
 const allItems = (state = INITIAL_ALL_ITEMS, action) => {
+  console.log(action)
   switch(action.type){
     case GET_ALL_PRODUCTS: return action.payload
+    default: return state
+  }
+}
+
+const allShops = (state = [], action) => {
+  console.log(action)
+  switch(action.type){
+    case GET_ALL_SHOPS: return action.payload
     default: return state
   }
 }

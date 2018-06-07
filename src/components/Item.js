@@ -18,31 +18,27 @@ const handleAddToCart = (props, item) => {
 }
 
 const handleOptionSelect = (props, options) => {
-  console.log(props)
+  // console.log(props)
   props.setActiveItemOptions(options)
 }
 
 const Item = (props) => {
-  console.log(props);
+  // console.log(props);
   const {activeItem} = props
   return (
     <Swipeable onSwipeLeft={()=>props.changeActivePage(1)}>
 
     <div className='main'>
-        <Header/>
-
-
-
-      <h2 className='coffeeshop-time'><i className="fas fa-walking"></i> 5 min</h2>
-
+    <Header/>
+    <h2 className='coffeeshop-time'><i className="fas fa-walking"></i> 5 min</h2>
       <section className='coffeeshop-section'>
         <div className='coffeeshop-info'>
             <h1 className='coffeeshop-section-title'>{activeItem.productName}</h1>
             <h2 className='coffeeshop-section-address'>${parseFloat(activeItem.price).toFixed(2)}</h2>
         </div>
         <div className='item-options-item-card-container'>
-          <Collapsible accordion defaultActiveKey={null} style={{boxShadow: 'none', border: 'none'}}  id='asd'>
-            <CollapsibleItem header={'Size - ' + activeItem.sizeName} icon='filter_drama' style={{fontSize: '12px'}}>
+          <Collapsible accordion defaultActiveKey={null} style={{boxShadow: 'none', border: 'none'}} id='asd'>
+            <CollapsibleItem header={`Size -  ${activeItem.sizeName} xx`} icon='filter_drama' style={{fontSize: '12px'}}>
               <Collection>
                 {['8 oz','12 oz', '16 oz'].map(el=>(
                   <CollectionItem active={activeItem.sizeName===el} onClick={()=>handleOptionSelect(props,{sizeName: el})}>{el}</CollectionItem>
