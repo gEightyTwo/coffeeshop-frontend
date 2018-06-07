@@ -10,7 +10,13 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import reducers from './reducers'
 
+import { getAllShops, getAllProducts, getAllOptions } from './actions'
+
 const store = createStore(reducers, applyMiddleware(thunk))
+
+store.dispatch(getAllShops())
+store.dispatch(getAllProducts())
+store.dispatch(getAllOptions())
 
 ReactDOM.render(
     <Provider store={store}>
