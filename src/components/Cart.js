@@ -5,7 +5,7 @@ import io from 'socket.io-client';
 import { bindActionCreators } from 'redux'
 import {connect} from 'react-redux'
 
-import {changeActivePage, addToCart, removeFromCart, setPickupTime} from '../actions'
+import {changeActivePage, addToCart, removeFromCart, setPickupTime,createUserOrder} from '../actions'
 import Header from './Header'
 import { request, AuthenticationService, withAuthentication } from '../helpers'
 
@@ -19,6 +19,9 @@ const handlePlaceOrder = (event,props) => {
   console.log('hi');
   if (props.authState) {
     console.log('Oh, Hi Mark');
+    const userId = props.authState ? props.authState.id : null
+    const payload = '{"shopId":"1","pickupTime":"2018-05-05 06:00:00","orderItems":[{"productWithOptionsId":"2","sizeId":"3","milkId":"2","extraId":"1","extraShots":2},{"productWithOptionsId":"1","sizeId":"1","milkId":"1","extraId":"1","extraShots":0}]}'
+    props.createUserOrder(userId,payload)
   } else {
     props.changeActivePage(5)
   }
@@ -69,6 +72,6 @@ const Cart = (props) => {
       </div>
 )}
 
-const mapDispatchToProps = dispatch => bindActionCreators({changeActivePage, addToCart, removeFromCart,setPickupTime}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({changeActivePage, addToCart, removeFromCart,setPickupTime, createUserOrder}, dispatch)
 const mapStateToProps = ({activePage, cart}) => ({activePage,cart})
 export default connect(mapStateToProps,mapDispatchToProps)(withAuthentication(Cart))

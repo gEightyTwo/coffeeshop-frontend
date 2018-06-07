@@ -153,9 +153,9 @@ export const getAllUserOrders = (userId) => (
 
 export const createUserOrder = (userId, body) => (
   dispatch => {
-    request(`/api/customer/${userId}/orders`,'post', body)
+    request(`/api/customer/user/${userId}/orders`,'post', body)
     .then(response => {
-      dispatch(getAllUserOrders())
+      console.log('order sent!')
     })
   }
 )
