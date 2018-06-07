@@ -14,7 +14,6 @@ import {
 
 const INITIAL_PAGE = {id: 0, pageName: 'home'}
 const INITIAL_SHOP = {id: '1', shopName: 'Zeitgeist Coffee', shopAddress: '171 S Jackson St, Seattle, WA 98101'}
-
 const INITIAL_ALL_ITEMS = [
   {
     shopId: '1',
@@ -183,7 +182,7 @@ const cart = (state = INITIAL_CART, action) => {
 }
 
 const allItems = (state = INITIAL_ALL_ITEMS, action) => {
-  console.log(action)
+  //console.log(action)
   switch(action.type){
     case GET_ALL_PRODUCTS: return action.payload
     default: return state
@@ -191,7 +190,7 @@ const allItems = (state = INITIAL_ALL_ITEMS, action) => {
 }
 
 const allShops = (state = [], action) => {
-  console.log(action)
+  //console.log(action)
   switch(action.type){
     case GET_ALL_SHOPS: return action.payload
     default: return state
@@ -199,4 +198,4 @@ const allShops = (state = [], action) => {
 }
 
 
-export default combineReducers({ activePage, activeShop, activeItem, cart, allItems })
+export default combineReducers({ activePage, activeShop, activeItem, cart, allItems, allShops })
