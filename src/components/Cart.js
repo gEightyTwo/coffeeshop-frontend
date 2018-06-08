@@ -12,7 +12,7 @@ import Header from './Header'
 import { request, AuthenticationService, withAuthentication } from '../helpers'
 
 const token = localStorage.getItem('token') || 12345
-const socket = io.connect(`http://localhost:3000?token=${token}`, {reconnect: true})
+const socket = io.connect(`${process.env.REACT_APP_BACKEND}?token=${token}`, {reconnect: true})
 
 const handlePlaceOrder = (event,props) => {
   if (props.authState) {

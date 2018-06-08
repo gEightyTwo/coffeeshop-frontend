@@ -23,7 +23,7 @@ const handleItemSelection = (props, shopId, item) => {
 const Home = (props) => {
   return (
       <div className='main'>
-        // {console.log('hello',props.allItems[0].orderItems)}
+        {/* // {console.log('hello',props.allItems[0].orderItems)} */}
         <Header />
         <section className='main-section'>
           <h1 className='main-section-title'>Top Coffeeshops</h1>
@@ -48,7 +48,7 @@ const Home = (props) => {
           <div className='main-horizontal-scroller'>
             <div className='main-section-list'>
                 {
-                  props.allItems[0].orderItems.filter(el => el.id < 3).map(item => (
+                  props.allItems[0] ? props.allItems[0].orderItems.filter(el => el.id < 3).map(item => (
                     <div className='main-card' key={item.product_id} onClick={event => handleItemSelection(props, props.allShops[0], item)}>
                       <div className='main-card-header items' style={{background: `url(${item.item_picture})`}}></div>
                       <div className='main-card-content'>
@@ -57,7 +57,7 @@ const Home = (props) => {
                       </div>
                     </div>
                   ))
-                }
+                : null}
               </div>
             </div>
         </section>
