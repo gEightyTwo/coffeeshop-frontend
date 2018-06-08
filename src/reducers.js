@@ -122,30 +122,7 @@ const INITIAL_CART = {
   isFullfilled: false,
   isCancelled: false,
   pickupTime: 15,
-  orderItems: [
-    // {
-    //   productId: '2',
-    //   productName: 'Latte',
-    //   sizeId: '3',
-    //   sizeName: '16 oz',
-    //   milkId: '2',
-    //   milkName: '2% Milk',
-    //   shots: 2,
-    //   extraShots: 2,
-    //   price: 4.75
-    // },
-    // {
-    //   productId: '1',
-    //   productName: 'Americano',
-    //   sizeId: '2',
-    //   sizeName: '12 oz',
-    //   milkId: '1',
-    //   milkName: null,
-    //   shots: 2,
-    //   extraShots: 0,
-    //   price: 3.25
-    // }
-  ]
+  orderItems: []
 }
 
 
@@ -164,7 +141,6 @@ const activeShop = (state = INITIAL_SHOP, action) => {
 }
 
 const activeItem = (state = INITIAL_ITEM, action) => {
-  console.log(state);
   switch(action.type){
     case CHANGE_ACTIVE_ITEM: return action.payload
     case SET_ACTIVE_ITEM_OPTIONS: return {...state, ...action.payload}
@@ -182,7 +158,6 @@ const cart = (state = INITIAL_CART, action) => {
 }
 
 const allItems = (state = INITIAL_ALL_ITEMS, action) => {
-  //console.log(action)
   switch(action.type){
     case GET_ALL_PRODUCTS: return action.payload
     default: return state
@@ -190,7 +165,6 @@ const allItems = (state = INITIAL_ALL_ITEMS, action) => {
 }
 
 const allShops = (state = [], action) => {
-  //console.log(action)
   switch(action.type){
     case GET_ALL_SHOPS: return action.payload
     default: return state
