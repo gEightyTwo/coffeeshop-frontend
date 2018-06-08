@@ -26,6 +26,9 @@ const Coffeeshop = (props) => {
               <h1 className='coffeeshop-section-title'>{allItems[activeShop-1].shop.shop_name}</h1>
               <h2 className='coffeeshop-section-address'>{allItems[activeShop-1].shop.shop_location_address}</h2>
           </div>
+
+          {props.cart.orderItems.length ? <Button waves='light' className='coffeeshop-checkout-button' onClick={()=>props.changeActivePage(3)}>Checkout</Button> : null}
+
           <div className='coffeeshop-item-card-container'>
             {allItems.find(el=>el.shopId === activeShop.id).orderItems.map(item => (
               <div key={item.id} className='coffeeshop-item-card' onClick={()=>handleItemSelection(props,item)}>
@@ -42,9 +45,9 @@ const Coffeeshop = (props) => {
           <p className='footer-text'>© 2018 Coffeeshop</p>
         </footer>
       </div>
-    </Swipeable>  
+    </Swipeable>
 )}
 
 const mapDispatchToProps = dispatch => bindActionCreators({changeActivePage, changeActiveItem}, dispatch)
-const mapStateToProps = ({allItems,activeShop}) => ({allItems, activeShop})
+const mapStateToProps = ({allItems,activeShop,cart}) => ({allItems, activeShop,cart})
 export default connect(mapStateToProps,mapDispatchToProps)(Coffeeshop)

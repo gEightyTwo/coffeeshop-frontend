@@ -7,6 +7,7 @@ export const CHANGE_ACTIVE_ITEM = 'CHANGE_ACTIVE_ITEM'
 export const SET_ACTIVE_ITEM_OPTIONS = 'SET_ACTIVE_ITEM_OPTION'
 export const ADD_TO_CART = 'ADD_TO_CART'
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
+export const CLEAR_CART = 'CLEAR_CART'
 export const SET_PICKUP_TIME = 'SET_PICKUP_TIME'
 export const GET_ALL_SHOPS = 'GET_ALL_SHOPS'
 export const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'
@@ -90,6 +91,15 @@ export const removeFromCart = idx => (
       dispatch({
         type: REMOVE_FROM_CART,
         payload: idx
+      })
+  }
+)
+
+
+export const clearCart = () => (
+  dispatch => {
+      dispatch({
+        type: CLEAR_CART
       })
   }
 )
