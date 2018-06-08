@@ -7,7 +7,7 @@ import {connect} from 'react-redux'
 import moment from 'moment'
 import { Swipeable } from 'react-touch';
 
-import {changeActivePage, addToCart, removeFromCart, setPickupTime,createUserOrder} from '../actions'
+import {changeActivePage, addToCart, removeFromCart, clearCart, setPickupTime,createUserOrder} from '../actions'
 import Header from './Header'
 import { request, AuthenticationService, withAuthentication } from '../helpers'
 
@@ -32,6 +32,7 @@ const handlePlaceOrder = (event,props) => {
     props.createUserOrder(userId,payload)
     socket.emit('chat message',`${token}`)
     // setTimeout(()=>props.changeActivePage(0),100)
+    props.clearCart()
     props.changeActivePage(0)
 
 
@@ -85,7 +86,7 @@ const Cart = (props) => {
     // </Swipeable>
 )}
 
-const mapDispatchToProps = dispatch => bindActionCreators({changeActivePage, addToCart, removeFromCart,setPickupTime, createUserOrder}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({changeActivePage, addToCart, removeFromCart, clearCart, setPickupTime, createUserOrder}, dispatch)
 const mapStateToProps = ({activePage, cart, allShops}) => ({activePage, cart, allShops})
 
 export default connect(mapStateToProps,mapDispatchToProps)(withAuthentication(Cart))
