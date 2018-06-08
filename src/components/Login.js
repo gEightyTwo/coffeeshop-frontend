@@ -26,6 +26,7 @@ const handleSignIn = (event, props) => {
   .then(response => {
     // this.setState({ showErrorMessage: false })
     localStorage.setItem('token', response.data.token)
+    // console.log(response.data.token);
     props.changeActivePage(3)
   })
   .catch(error => {

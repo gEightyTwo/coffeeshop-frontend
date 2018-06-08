@@ -26,12 +26,6 @@ class App extends Component {
     request('/auth/token')
     .then(response => {
       AuthenticationService.setAuthState(response.data)
-      return request('/users')
-    })
-    .then(response => {
-      const authState = AuthenticationService.getAuthState()
-      const activeUser = response.data.data.find(el => el.id === authState.id)
-      AuthenticationService.setAuthState(activeUser)
     })
   }
 
