@@ -430,3 +430,22 @@ header.auth-header {
   /* border-bottom: 1px solid rgba(45,30,23,.3); */
   background-color: white;
 }
+
+#toast-container {
+  top: 0px !important;
+  /* right: 10px !important; */
+  left: auto !important;
+  bottom: auto !important;
+  /* left: 10% !important; */
+  /* background-color: red !important; */
+  /* height: 100px !important; */
+}
+
+.toast {
+  padding: 0px;
+  width: 100% !important;
+  height: 80px;
+  margin: 0px;
+  text-align: center;
+  background-color: rgba(0,0,0,0.9)
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/App.css';
-import {SideNav, SideNavItem, Button, Collapsible, CollapsibleItem, Collection, CollectionItem} from 'react-materialize'
+import {Toast, SideNav, SideNavItem, Button, Collapsible, CollapsibleItem, Collection, CollectionItem} from 'react-materialize'
 import io from 'socket.io-client';
 import { bindActionCreators } from 'redux'
 import {connect} from 'react-redux'
@@ -31,6 +31,11 @@ const handlePlaceOrder = (event,props) => {
     const payload = JSON.stringify(payloadCart)
     props.createUserOrder(userId,payload)
     socket.emit('chat message',`${token}`)
+    // setTimeout(()=>props.changeActivePage(0),100)
+    props.changeActivePage(0)
+
+
+
   } else {
     props.changeActivePage(5)
   }
@@ -39,7 +44,7 @@ const handlePlaceOrder = (event,props) => {
 const Cart = (props) => {
   const {shopId, pickupTime, orderItems} = props.cart
   return (
-    <Swipeable onSwipeRight={()=>props.changeActivePage(0)}>
+    // <Swipeable onSwipeRight={()=>props.changeActivePage(0)}>
       <div className='main'>
         <Header/>
         <h2 className='coffeeshop-time'><i className="fas fa-walking"></i> 5 min</h2>
@@ -74,9 +79,10 @@ const Cart = (props) => {
             <h1 className='cart-section-title-total'>${parseFloat(orderItems.reduce((acc,item)=>acc+parseFloat(item.item_price),0)).toFixed(2) || 0}</h1>
           </div>
           <Button waves='light' className='cart-item-order-button' onClick={event=>handlePlaceOrder(event,props)}>Place Order</Button>
+            {/* <Button waves='light' className='cart-item-order-button' onClick={event=>handlePlaceOrder(event,props)}>Place Order</Button> */}
         </section>
       </div>
-    </Swipeable>
+    // </Swipeable>
 )}
 
 const mapDispatchToProps = dispatch => bindActionCreators({changeActivePage, addToCart, removeFromCart,setPickupTime, createUserOrder}, dispatch)
