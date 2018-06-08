@@ -25,9 +25,12 @@ const Header = (props) => {
           <SideNavItem waves={true} href='#!third'>Favorite Shops</SideNavItem>
           <SideNavItem waves={true} href='#!third'>Favorite Drinks</SideNavItem>
           <SideNavItem divider={true}/>
-          { 
+          {
             props.authState
-            ? <SideNavItem href='#!icon' waves={true} onClick={event=>AuthenticationService.setAuthState(null)}>Sign Out</SideNavItem>
+            ? <SideNavItem href='#!icon' waves={true} onClick={event=>{
+              localStorage.clear()
+              AuthenticationService.setAuthState(null)}
+            }>Sign Out</SideNavItem>
             : <div>
                 <SideNavItem href='#!icon' waves={true} onClick={event=>props.changeActivePage(5)}>Sign In</SideNavItem>
                 <SideNavItem href='#!second' waves={true} onClick={event=>props.changeActivePage(4)} >New Account</SideNavItem>

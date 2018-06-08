@@ -27,7 +27,11 @@ const handleSignIn = (event, props) => {
     // this.setState({ showErrorMessage: false })
     localStorage.setItem('token', response.data.token)
     // console.log(response.data.token);
-    props.changeActivePage(3)
+    request('/auth/token')
+    .then(response => {
+      AuthenticationService.setAuthState(response.data)
+      props.changeActivePage(3)
+    })
   })
   .catch(error => {
     // this.setState({showErrorMessage: true})
