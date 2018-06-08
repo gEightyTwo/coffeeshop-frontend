@@ -12,7 +12,7 @@ import {
   GET_ALL_SHOPS,
 } from './actions'
 
-const INITIAL_PAGE = {id: 3, pageName: 'home'}
+const INITIAL_PAGE = {id: 0, pageName: 'home'}
 const INITIAL_SHOP = {id: '1', shopName: 'Zeitgeist Coffee', shopAddress: '171 S Jackson St, Seattle, WA 98101'}
 const INITIAL_ALL_ITEMS = [
   {

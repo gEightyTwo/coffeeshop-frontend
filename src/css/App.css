@@ -122,7 +122,7 @@ h1.main-section-title {
 .main-card-header {
   height: 100px;
   background: url('https://cdn.workfrom.co/files/2014/08/519128766_c0132a9857_b.jpg');
-  background-size:contain;
+  background-size: cover !important;
 }
 
 

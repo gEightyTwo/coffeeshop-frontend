@@ -34,7 +34,7 @@ const Home = (props) => {
                   <div className='main-card' key={shop.id} onClick={event => handleShopSelection(props, shop.id, shop)}>
                     <div className='main-card-header' style={{background: `url(${shop.picture})`}}></div>
                     <div className='main-card-content'>
-                      <h1 className='main-card-content-title'>{shop.shop_name}</h1>
+                      <h1 className='main-card-content-title'>{shop.shop_name.split(' ').filter((el,idx)=>idx<3).join(' ')}</h1>
                       <h2 className='main-card-content-time'><i className="fas fa-walking"></i> 7 min</h2>
                     </div>
                   </div>

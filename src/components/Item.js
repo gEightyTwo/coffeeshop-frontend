@@ -43,7 +43,7 @@ const Item = (props) => {
                     ))}
                   </Collection>
                 </CollapsibleItem>
-              { activeItem.milkName ?
+              { activeItem.milk_type ?
               <CollapsibleItem header={'Milk - ' + activeItem.product_milk} icon='filter_drama' style={{fontSize: '12px'}}>
                 <Collection>
                   {['Skim Milk','2% Milk', 'Whole Milk', 'Almond Milk', 'Soy Milk'].map(el=>(
