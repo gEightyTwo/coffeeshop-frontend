@@ -4,6 +4,7 @@ import {SideNav, SideNavItem, Button, Collapsible, CollapsibleItem, Collection, 
 import io from 'socket.io-client';
 import { bindActionCreators } from 'redux'
 import {connect} from 'react-redux'
+import { Swipeable } from 'react-touch';
 
 import {changeActivePage, changeActiveItem} from '../actions'
 import Header from './Header'
@@ -16,6 +17,7 @@ const handleItemSelection = (props, item) => {
 const Coffeeshop = (props) => {
   const {activeShop, allItems} = props
   return (
+    <Swipeable onSwipeLeft={()=>props.changeActivePage(3)}>
       <div className='main'>
         <Header/>
         <h2 className='coffeeshop-time'><i className="fas fa-walking"></i> 5 min</h2>
@@ -40,6 +42,7 @@ const Coffeeshop = (props) => {
           <p className='footer-text'>© 2018 Coffeeshop</p>
         </footer>
       </div>
+    </Swipeable>  
 )}
 
 const mapDispatchToProps = dispatch => bindActionCreators({changeActivePage, changeActiveItem}, dispatch)
