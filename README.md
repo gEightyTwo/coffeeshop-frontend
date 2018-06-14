@@ -5,10 +5,12 @@ CoffeeShop is a mobile coffee ordering web application.  It allows users to crea
 The app utilizes the Google API location codes to find the nearest coffee shops and walking distance to the shop.* (coming soon!)
 
 http://www.responsinator.com/?url=https%3A%2F%2Fcoffeeshop-customer.herokuapp.com%2F&device=iphone-x&orientation=portrait
-![Customer Site on iPhone X](https://imgur.com/4n7bFQZ)
+
+![Customer Site on iPhone X](http://imgur.com/4n7bFQZ)
 
 http://www.responsinator.com/?url=https%3A%2F%2Fcoffeeshop-store.herokuapp.com%2F&device=ipad&orientation=landscape
-![Store Site on iPad](https://imgur.com/jNlLr4a)
+
+![Store Site on iPad](http://imgur.com/jNlLr4a)
 Test Login: dandog@gmail.com
 Test Password: dandog
 
