@@ -6,11 +6,11 @@ The app utilizes the Google API location codes to find the nearest coffee shops 
 
 http://www.responsinator.com/?url=https%3A%2F%2Fcoffeeshop-customer.herokuapp.com%2F&device=iphone-x&orientation=portrait
 
-![Customer Site on iPhone X](http://imgur.com/4n7bFQZ)
+![Customer Site on iPhone X](https://i.imgur.com/4n7bFQZ.png)
 
 http://www.responsinator.com/?url=https%3A%2F%2Fcoffeeshop-store.herokuapp.com%2F&device=ipad&orientation=landscape
 
-![Store Site on iPad](http://imgur.com/jNlLr4a)
+![Store Site on iPad](https://i.imgur.com/jNlLr4a.png)
 Test Login: dandog@gmail.com
 Test Password: dandog
 
