@@ -1,4 +1,4 @@
-# CoffeeShop (Frontend-customer_facing)
+# CoffeeShop (Customer)
 
 CoffeeShop is a mobile coffee ordering web application.  It allows users to create a profile, log in, and order custom coffee drinks. Users can craft drink orders and set the time they want to pick up their drinks for a delay up to 30 minutes.  Coffee shop owners can then receive incoming orders on the shop_facing side of this application, sorted by pickup time, and fulfill orders.
 
