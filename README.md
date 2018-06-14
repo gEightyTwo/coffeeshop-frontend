@@ -9,8 +9,8 @@ http://www.responsinator.com/?url=https%3A%2F%2Fcoffeeshop-customer.herokuapp.co
 ![Customer Site on iPhone X](https://i.imgur.com/4n7bFQZ.png)
 
 http://www.responsinator.com/?url=https%3A%2F%2Fcoffeeshop-store.herokuapp.com%2F&device=ipad&orientation=landscape
-*Test Login: dandog@gmail.com
-*Test Password: dandog
+* Test Login: dandog@gmail.com
+* Test Password: dandog
 
 ![Store Site on iPad](https://i.imgur.com/jNlLr4a.png)
 
