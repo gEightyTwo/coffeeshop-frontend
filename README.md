@@ -1,6 +1,16 @@
 # CoffeeShop (Frontend-customer_facing)
 
-CoffeeShop is a coffee ordering web application.  It allows users to create a profile, log in, and order custom coffee drinks.  The app utilizes the Google API location codes to find the nearest coffee shops and walking distance to the shop.  Users can craft their drink order and set the time they want to pick up their drinks for a delay up to 30 minutes.  Coffee shop owners can receive incoming orders, sorted by pickup time, and fulfill orders.
+CoffeeShop is a mobile coffee ordering web application.  It allows users to create a profile, log in, and order custom coffee drinks. Users can craft drink orders and set the time they want to pick up their drinks for a delay up to 30 minutes.  Coffee shop owners can then receive incoming orders on the shop_facing side of this application, sorted by pickup time, and fulfill orders.
+
+The app utilizes the Google API location codes to find the nearest coffee shops and walking distance to the shop.* (coming soon!)
+
+http://www.responsinator.com/?url=https%3A%2F%2Fcoffeeshop-customer.herokuapp.com%2F&device=iphone-x&orientation=portrait
+![Customer Site on iPhone X](https://imgur.com/4n7bFQZ)
+
+http://www.responsinator.com/?url=https%3A%2F%2Fcoffeeshop-store.herokuapp.com%2F&device=ipad&orientation=landscape
+![Store Site on iPad](https://imgur.com/jNlLr4a)
+Test Login: dandog@gmail.com
+Test Password: dandog
 
 ## Getting Started
 
@@ -32,7 +42,7 @@ Start the react development server:
 
 ## Deployment
 
-This project has been deployed on Heroku at the address: 
+This project has been deployed on Heroku at the address:
 * https://coffeeshop-customer.herokuapp.com
 * https://coffeeshop-store.herokuapp.com
 
